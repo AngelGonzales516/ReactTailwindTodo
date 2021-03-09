@@ -1,24 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+import BrandHeader from './Components/BrandHeader/BrandHeader';
+import Login from './Components/Pages/Home';
+import Home from './Components/Pages/Home';
+import Todo from './Components/Pages/Todo/Todo';
+
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+//import Cards from './components/Cards/Cards';
+//import CardHolder from './components/Cards/CardHolder';
+//
+
+//import imgMeme from './assets/meme.jpg';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <section>
+        <BrandHeader></BrandHeader>
+        <Switch>
+          <Route path="/" exact>
+              <Home />
+          </Route>
+          <Route path="/todos" exact>
+            <Todo />
+          </Route>
+          <Route path="/login" exact>
+              <Login></Login>
+          </Route>
+        </Switch>
+      </section>
+    </Router>
   );
 }
 
